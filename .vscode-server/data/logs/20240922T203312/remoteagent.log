@@ -1,0 +1,55 @@
+2024-09-22 20:33:12.804 [info] 
+
+
+
+
+2024-09-22 20:33:12.821 [info] Extension host agent started.
+2024-09-22 20:33:12.896 [info] [<unknown>][62bc12f3][ExtensionHostConnection] New connection established.
+2024-09-22 20:33:12.908 [info] [<unknown>][4d5729e5][ManagementConnection] New connection established.
+2024-09-22 20:33:13.016 [info] [<unknown>][62bc12f3][ExtensionHostConnection] <225188> Launched Extension Host Process.
+2024-09-22 20:33:13.094 [info] [<unknown>][62bc12f3][ExtensionHostConnection] <225188><stderr> Error reading NLS messages file /home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json: Error: ENOENT: no such file or directory, open '/home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json'
+
+2024-09-22 20:36:24.115 [info] [<unknown>][a49ae45e][ManagementConnection] New connection established.
+2024-09-22 20:36:24.125 [info] [<unknown>][0e44a5b2][ExtensionHostConnection] New connection established.
+2024-09-22 20:36:24.131 [info] [<unknown>][0e44a5b2][ExtensionHostConnection] <225292> Launched Extension Host Process.
+2024-09-22 20:36:24.187 [info] [<unknown>][0e44a5b2][ExtensionHostConnection] <225292><stderr> Error reading NLS messages file /home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json: Error: ENOENT: no such file or directory, open '/home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json'
+
+2024-09-22 20:38:12.823 [info] New EH opened, aborting shutdown
+2024-09-22 20:49:29.977 [info] [<unknown>][07811d3e][ManagementConnection] New connection established.
+2024-09-22 20:49:29.988 [info] [<unknown>][e54d7aff][ExtensionHostConnection] New connection established.
+2024-09-22 20:49:29.994 [info] [<unknown>][e54d7aff][ExtensionHostConnection] <225942> Launched Extension Host Process.
+2024-09-22 20:49:30.049 [info] [<unknown>][e54d7aff][ExtensionHostConnection] <225942><stderr> Error reading NLS messages file /home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json: Error: ENOENT: no such file or directory, open '/home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json'
+
+2024-09-22 20:49:42.763 [info] [<unknown>][07811d3e][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-22 20:49:42.809 [info] [<unknown>][e54d7aff][ExtensionHostConnection] <225942> Extension Host Process exited with code: 0, signal: null.
+2024-09-22 20:49:43.859 [info] [<unknown>][56deb08c][ManagementConnection] New connection established.
+2024-09-22 20:49:43.878 [info] [<unknown>][38a9b3b1][ExtensionHostConnection] New connection established.
+2024-09-22 20:49:43.887 [info] [<unknown>][38a9b3b1][ExtensionHostConnection] <225977> Launched Extension Host Process.
+2024-09-22 20:49:43.942 [info] [<unknown>][38a9b3b1][ExtensionHostConnection] <225977><stderr> Error reading NLS messages file /home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json: Error: ENOENT: no such file or directory, open '/home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json'
+
+2024-09-22 21:21:01.713 [info] [<unknown>][a49ae45e][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2024-09-22 21:21:01.714 [info] [<unknown>][56deb08c][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2024-09-22 21:21:01.714 [info] [<unknown>][4d5729e5][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2024-09-22 21:21:50.788 [info] [<unknown>][4d5729e5][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+2024-09-22 21:21:50.791 [info] [<unknown>][a49ae45e][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+2024-09-22 21:21:50.791 [info] [<unknown>][56deb08c][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+2024-09-22 21:21:50.793 [info] [<unknown>][38a9b3b1][ExtensionHostConnection] The client has reconnected.
+2024-09-22 21:21:50.796 [info] [<unknown>][56deb08c][ManagementConnection] The client has reconnected.
+2024-09-22 21:21:50.800 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/server/out/vs/server/node/server.main.js:198:6390)
+    at process.emit (node:events:531:35)
+2024-09-22 21:21:51.192 [info] [<unknown>][e7fa0fe6][ManagementConnection] New connection established.
+2024-09-22 21:21:51.202 [info] [<unknown>][90f69976][ExtensionHostConnection] New connection established.
+2024-09-22 21:21:51.208 [info] [<unknown>][90f69976][ExtensionHostConnection] <227882> Launched Extension Host Process.
+2024-09-22 21:21:51.276 [info] [<unknown>][90f69976][ExtensionHostConnection] <227882><stderr> Error reading NLS messages file /home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json: Error: ENOENT: no such file or directory, open '/home/assam_yoonseocho/.vscode-server/data/clp/2d4fe25550f0e81c10f85b98e564e7ad.ko/38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/nls.messages.json'
+
+2024-09-22 21:24:07.991 [info] [<unknown>][e7fa0fe6][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-22 21:24:08.037 [info] [<unknown>][90f69976][ExtensionHostConnection] <227882> Extension Host Process exited with code: 0, signal: null.
+2024-09-22 21:26:50.938 [info] [<unknown>][4d5729e5][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+2024-09-22 21:26:50.939 [info] [<unknown>][a49ae45e][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+2024-09-22 21:26:51.058 [info] [<unknown>][0e44a5b2][ExtensionHostConnection] <225292> Extension Host Process exited with code: 0, signal: null.
+2024-09-22 21:26:51.066 [info] [<unknown>][62bc12f3][ExtensionHostConnection] <225188> Extension Host Process exited with code: 0, signal: null.
+2024-09-22 21:36:41.000 [info] [<unknown>][56deb08c][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-22 21:36:41.066 [info] [<unknown>][38a9b3b1][ExtensionHostConnection] <225977> Extension Host Process exited with code: 0, signal: null.
+2024-09-22 21:36:41.067 [info] Last EH closed, waiting before shutting down
+2024-09-22 21:41:41.068 [info] Last EH closed, shutting down

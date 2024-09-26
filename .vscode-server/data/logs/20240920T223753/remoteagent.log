@@ -1,0 +1,43 @@
+2024-09-20 22:37:53.866 [info] 
+
+
+
+
+2024-09-20 22:37:53.883 [info] Extension host agent started.
+2024-09-20 22:37:53.950 [info] [<unknown>][cabdfc62][ExtensionHostConnection] New connection established.
+2024-09-20 22:37:53.973 [info] [<unknown>][fb752b66][ManagementConnection] New connection established.
+2024-09-20 22:37:53.977 [info] Deleted uninstalled extension from disk ms-ceintl.vscode-language-pack-ko /home/assam_yoonseocho/.vscode-server/extensions/ms-ceintl.vscode-language-pack-ko-1.92.2024081409
+2024-09-20 22:37:54.078 [info] [<unknown>][cabdfc62][ExtensionHostConnection] <163919> Launched Extension Host Process.
+2024-09-20 22:38:06.200 [info] [<unknown>][fb752b66][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-20 22:38:07.606 [info] [<unknown>][a7b97dc7][ManagementConnection] New connection established.
+2024-09-20 22:38:07.615 [info] [<unknown>][35c1e48e][ExtensionHostConnection] New connection established.
+2024-09-20 22:38:07.621 [info] [<unknown>][35c1e48e][ExtensionHostConnection] <163965> Launched Extension Host Process.
+2024-09-20 22:42:53.886 [info] New EH opened, aborting shutdown
+2024-09-20 22:43:07.748 [info] [<unknown>][cabdfc62][ExtensionHostConnection] <163919> Extension Host Process exited with code: 0, signal: null.
+2024-09-20 22:45:29.852 [info] [<unknown>][a7b97dc7][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-20 22:46:25.764 [info] [<unknown>][ea2ee979][ExtensionHostConnection] New connection established.
+2024-09-20 22:46:25.771 [info] [<unknown>][ea2ee979][ExtensionHostConnection] <164315> Launched Extension Host Process.
+2024-09-20 22:46:25.772 [info] [<unknown>][16af6f68][ManagementConnection] New connection established.
+2024-09-20 22:46:39.747 [info] [<unknown>][16af6f68][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-20 22:46:41.268 [info] [<unknown>][674cc245][ManagementConnection] New connection established.
+2024-09-20 22:46:41.277 [info] [<unknown>][65e9fe48][ExtensionHostConnection] New connection established.
+2024-09-20 22:46:41.284 [info] [<unknown>][65e9fe48][ExtensionHostConnection] <164374> Launched Extension Host Process.
+2024-09-20 22:46:58.192 [info] [<unknown>][674cc245][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-20 22:46:58.199 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/vs/server/node/server.main.js:190:6369)
+    at process.emit (node:events:531:35)
+2024-09-20 22:51:25.997 [info] [<unknown>][35c1e48e][ExtensionHostConnection] <163965> Extension Host Process exited with code: 0, signal: null.
+2024-09-20 22:51:41.394 [info] [<unknown>][ea2ee979][ExtensionHostConnection] <164315> Extension Host Process exited with code: 0, signal: null.
+2024-09-21 00:14:44.221 [info] [<unknown>][fa64308f][ManagementConnection] New connection established.
+2024-09-21 00:14:44.232 [info] [<unknown>][02f0ab62][ExtensionHostConnection] New connection established.
+2024-09-21 00:14:44.237 [info] [<unknown>][02f0ab62][ExtensionHostConnection] <165842> Launched Extension Host Process.
+2024-09-21 00:19:44.464 [info] [<unknown>][65e9fe48][ExtensionHostConnection] <164374> Extension Host Process exited with code: 0, signal: null.
+2024-09-21 00:20:19.479 [info] [<unknown>][fa64308f][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-21 00:20:21.314 [info] [<unknown>][29e1f0b3][ManagementConnection] New connection established.
+2024-09-21 00:20:21.322 [info] [<unknown>][56b8b561][ExtensionHostConnection] New connection established.
+2024-09-21 00:20:21.330 [info] [<unknown>][56b8b561][ExtensionHostConnection] <165979> Launched Extension Host Process.
+2024-09-21 00:25:21.525 [info] [<unknown>][02f0ab62][ExtensionHostConnection] <165842> Extension Host Process exited with code: 0, signal: null.
+2024-09-21 00:27:05.527 [info] [<unknown>][29e1f0b3][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2024-09-21 03:27:15.765 [info] [<unknown>][56b8b561][ExtensionHostConnection] <165979> Extension Host Process exited with code: 0, signal: null.
+2024-09-21 03:27:15.766 [info] Last EH closed, waiting before shutting down
+2024-09-21 03:32:15.767 [info] Last EH closed, shutting down

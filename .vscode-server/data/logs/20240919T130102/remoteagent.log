@@ -1,0 +1,44 @@
+2024-09-19 13:01:02.122 [info] 
+
+
+
+
+2024-09-19 13:01:02.137 [info] Extension host agent started.
+2024-09-19 13:01:02.187 [info] Started initializing default profile extensions in extensions installation folder. file:///home/assam_yoonseocho/.vscode-server/extensions
+2024-09-19 13:01:02.207 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/assam_yoonseocho/.vscode-server/extensions
+2024-09-19 13:01:02.232 [info] [<unknown>][a28aeaa4][ManagementConnection] New connection established.
+2024-09-19 13:01:02.240 [info] [<unknown>][71d6c2e4][ExtensionHostConnection] New connection established.
+2024-09-19 13:01:02.324 [info] Installing extensions...
+2024-09-19 13:01:02.352 [info] [<unknown>][71d6c2e4][ExtensionHostConnection] <126986> Launched Extension Host Process.
+2024-09-19 13:01:03.108 [info] Installing extension 'ms-ceintl.vscode-language-pack-ko'...
+2024-09-19 13:01:03.345 [info] Getting Manifest... ms-ceintl.vscode-language-pack-ko
+2024-09-19 13:01:03.397 [info] Installing extension: ms-ceintl.vscode-language-pack-ko {"isMachineScoped":true,"isBuiltin":false,"installGivenVersion":false,"isApplicationScoped":true,"installOnlyNewlyAddedFromExtensionPack":true,"profileLocation":{"$mid":1,"fsPath":"/home/assam_yoonseocho/.vscode-server/extensions/extensions.json","external":"file:///home/assam_yoonseocho/.vscode-server/extensions/extensions.json","path":"/home/assam_yoonseocho/.vscode-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"1.92.0","date":"2024-07-31T23:26:45.634Z"}}
+2024-09-19 13:01:06.139 [info] Extension signature verification result for ms-ceintl.vscode-language-pack-ko: Success. Executed: true. Duration: 2173ms.
+2024-09-19 13:01:06.262 [info] Extracted extension to file:///home/assam_yoonseocho/.vscode-server/extensions/ms-ceintl.vscode-language-pack-ko-1.92.2024081409: ms-ceintl.vscode-language-pack-ko
+2024-09-19 13:01:06.270 [info] Renamed to /home/assam_yoonseocho/.vscode-server/extensions/ms-ceintl.vscode-language-pack-ko-1.92.2024081409
+2024-09-19 13:01:06.284 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-ko
+2024-09-19 13:01:06.310 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-ko file:///home/assam_yoonseocho/.vscode-server/extensions/extensions.json
+2024-09-19 13:01:06.311 [info] Extension 'ms-ceintl.vscode-language-pack-ko' v1.92.2024081409 was successfully installed.
+2024-09-19 13:01:09.262 [info] Getting Manifest... ms-ceintl.vscode-language-pack-ko
+2024-09-19 13:01:09.570 [info] Installing extension: ms-ceintl.vscode-language-pack-ko {"productVersion":{"version":"1.93.1","date":"1970-01-01T00:00:00.000Z"},"pinned":false,"isApplicationScoped":true,"context":{"clientTargetPlatform":"darwin-arm64"},"installOnlyNewlyAddedFromExtensionPack":true,"profileLocation":{"$mid":1,"fsPath":"/home/assam_yoonseocho/.vscode-server/extensions/extensions.json","external":"file:///home/assam_yoonseocho/.vscode-server/extensions/extensions.json","path":"/home/assam_yoonseocho/.vscode-server/extensions/extensions.json","scheme":"file"}}
+2024-09-19 13:01:11.845 [info] Extension signature verification result for ms-ceintl.vscode-language-pack-ko: Success. Executed: true. Duration: 1576ms.
+2024-09-19 13:01:11.950 [info] Extracted extension to file:///home/assam_yoonseocho/.vscode-server/extensions/ms-ceintl.vscode-language-pack-ko-1.93.2024091109: ms-ceintl.vscode-language-pack-ko
+2024-09-19 13:01:11.959 [info] Renamed to /home/assam_yoonseocho/.vscode-server/extensions/ms-ceintl.vscode-language-pack-ko-1.93.2024091109
+2024-09-19 13:01:11.981 [info] Marked extension as uninstalled ms-ceintl.vscode-language-pack-ko-1.92.2024081409
+2024-09-19 13:01:11.983 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-ko
+2024-09-19 13:01:12.006 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-ko file:///home/assam_yoonseocho/.vscode-server/extensions/extensions.json
+2024-09-19 13:01:51.666 [info] [<unknown>][e14e37a4][ManagementConnection] New connection established.
+2024-09-19 13:01:51.674 [info] [<unknown>][fbd5623c][ExtensionHostConnection] New connection established.
+2024-09-19 13:01:51.681 [info] [<unknown>][fbd5623c][ExtensionHostConnection] <127094> Launched Extension Host Process.
+2024-09-19 13:02:20.089 [info] [<unknown>][a28aeaa4][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2024-09-19 13:06:02.138 [info] New EH opened, aborting shutdown
+2024-09-19 13:06:51.901 [info] [<unknown>][71d6c2e4][ExtensionHostConnection] <126986> Extension Host Process exited with code: 0, signal: null.
+2024-09-19 13:08:20.415 [info] [<unknown>][e14e37a4][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2024-09-19 16:02:29.386 [info] [<unknown>][a28aeaa4][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+2024-09-19 16:02:29.399 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/vs/server/node/server.main.js:190:6369)
+    at process.emit (node:events:531:35)
+2024-09-19 16:08:00.914 [info] [<unknown>][fbd5623c][ExtensionHostConnection] <127094> Extension Host Process exited with code: 0, signal: null.
+2024-09-19 16:08:00.915 [info] Last EH closed, waiting before shutting down
+2024-09-19 16:08:29.754 [info] [<unknown>][e14e37a4][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+2024-09-19 16:13:00.917 [info] Last EH closed, shutting down

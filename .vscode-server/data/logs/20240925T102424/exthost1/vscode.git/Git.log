@@ -1,0 +1,34 @@
+2024-09-25 10:24:26.963 [info] [main] 로그 수준: Info
+2024-09-25 10:24:26.963 [info] [main] "git"에서 찾은 git 유효성을 검사하는 중
+2024-09-25 10:24:26.963 [info] [main] "2.34.1"에서 git "git"을(를) 사용하는 중
+2024-09-25 10:24:26.963 [info] [Model][doInitialScan] Initial repository scan started
+2024-09-25 10:24:26.963 [info] > git rev-parse --show-toplevel [6ms]
+2024-09-25 10:24:26.963 [info] > git rev-parse --git-dir --git-common-dir [2ms]
+2024-09-25 10:24:26.963 [info] [Model][openRepository] Opened repository: /home/assam_yoonseocho/2024-os-hw1
+2024-09-25 10:24:26.963 [info] > git rev-parse --show-toplevel [12ms]
+2024-09-25 10:24:26.963 [info] > git config --get commit.template [17ms]
+2024-09-25 10:24:26.970 [info] > git rev-parse --show-toplevel [8ms]
+2024-09-25 10:24:26.977 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-09-25 10:24:26.978 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [11ms]
+2024-09-25 10:24:26.981 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/assam_yoonseocho/2024-os-hw1/.git/refs/remotes/origin/master'
+2024-09-25 10:24:26.983 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-09-25 10:24:26.992 [info] > git status -z -uall [6ms]
+2024-09-25 10:24:27.014 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [15ms]
+2024-09-25 10:24:27.021 [info] > git config --get commit.template [9ms]
+2024-09-25 10:24:27.022 [info] > git config --local branch.32214362_yoonseocho.vscode-merge-base [2ms]
+2024-09-25 10:24:27.071 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/master refs/remotes/origin/master [46ms]
+2024-09-25 10:24:27.077 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [13ms]
+2024-09-25 10:24:27.080 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/assam_yoonseocho/2024-os-hw1/.git/refs/remotes/origin/master'
+2024-09-25 10:24:27.080 [info] > git merge-base refs/heads/32214362_yoonseocho refs/remotes/origin/master [4ms]
+2024-09-25 10:24:27.085 [info] > git rev-parse refs/remotes/origin/master [6ms]
+2024-09-25 10:24:27.090 [info] > git rev-list --count --left-right refs/heads/32214362_yoonseocho...refs/remotes/origin/master [6ms]
+2024-09-25 10:24:27.093 [info] > git status -z -uall [4ms]
+2024-09-25 10:24:27.103 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [5ms]
+2024-09-25 10:24:27.106 [info] > git diff --name-status -z --diff-filter=ADMR 3754e078984a4486af05a630408918cfc55ef03c...refs/remotes/origin/master [13ms]
+2024-09-25 10:24:27.107 [info] > git config --local branch.32214362_yoonseocho.vscode-merge-base [1ms]
+2024-09-25 10:24:27.111 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/master refs/remotes/origin/master [2ms]
+2024-09-25 10:24:27.406 [info] > git show --textconv :sish.c [11ms]
+2024-09-25 10:24:27.406 [info] > git show --textconv :test.c [8ms]
+2024-09-25 10:24:27.406 [info] > git ls-files --stage -- /home/assam_yoonseocho/2024-os-hw1/sish.c [5ms]
+2024-09-25 10:24:27.409 [info] > git ls-files --stage -- /home/assam_yoonseocho/2024-os-hw1/test.c [4ms]
+2024-09-25 10:24:27.462 [info] > git check-ignore -v -z --stdin [2ms]

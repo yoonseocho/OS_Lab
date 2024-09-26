@@ -1,0 +1,46 @@
+*
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+Server bound to /tmp/code-4dfba49a-677c-4828-812e-74d1980556cc
+Extension host agent listening on /tmp/code-4dfba49a-677c-4828-812e-74d1980556cc
+
+[22:37:53] 
+
+
+
+
+[22:37:53] Extension host agent started.
+[22:37:53] [<unknown>][cabdfc62][ExtensionHostConnection] New connection established.
+Generating translation files failed. Error: ENOENT: no such file or directory, open '/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/nls.keys.json'
+    at async open (node:internal/fs/promises:636:25)
+    at async Object.readFile (node:internal/fs/promises:1246:14)
+    at async o (/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/vs/server/node/server.main.js:101:3836)
+    at async g (/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/vs/server/node/server.main.js:182:71094)
+    at async i.start (/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/vs/server/node/server.main.js:182:73906) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/assam_yoonseocho/.vscode-server/cli/servers/Stable-b1c0a14de1414fcdaa400695b4db1c0799bc3124/server/out/nls.keys.json'
+}
+[22:37:53] [<unknown>][fb752b66][ManagementConnection] New connection established.
+[22:37:53] Deleted uninstalled extension from disk ms-ceintl.vscode-language-pack-ko /home/assam_yoonseocho/.vscode-server/extensions/ms-ceintl.vscode-language-pack-ko-1.92.2024081409
+[22:37:54] [<unknown>][cabdfc62][ExtensionHostConnection] <163919> Launched Extension Host Process.
+[22:38:06] [<unknown>][fb752b66][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[22:38:07] [<unknown>][a7b97dc7][ManagementConnection] New connection established.
+[22:38:07] [<unknown>][35c1e48e][ExtensionHostConnection] New connection established.
+[22:38:07] [<unknown>][35c1e48e][ExtensionHostConnection] <163965> Launched Extension Host Process.
+New EH opened, aborting shutdown
+[22:42:53] New EH opened, aborting shutdown
+[22:43:07] [<unknown>][cabdfc62][ExtensionHostConnection] <163919> Extension Host Process exited with code: 0, signal: null.
+[22:45:29] [<unknown>][a7b97dc7][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[22:46:25] [<unknown>][ea2ee979][ExtensionHostConnection] New connection established.
+[22:46:25] [<unknown>][ea2ee979][ExtensionHostConnection] <164315> Launched Extension Host Process.
+[22:46:25] [<unknown>][16af6f68][ManagementConnection] New connection established.
+[22:46:39] [<unknown>][16af6f68][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[22:46:41] [<unknown>][674cc245][ManagementConnection] New connection established.
+[22:46:41] [<unknown>][65e9fe48][ExtensionHostConnection] New connection established.
+[22:46:41] [<unknown>][65e9fe48][ExtensionHostConnection] <164374> Launched Extension Host Process.

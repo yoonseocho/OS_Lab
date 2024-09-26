@@ -1,0 +1,32 @@
+2024-09-22 15:11:27.630 [info] [main] 로그 수준: Info
+2024-09-22 15:11:27.630 [info] [main] "git"에서 찾은 git 유효성을 검사하는 중
+2024-09-22 15:11:27.630 [info] [main] "2.34.1"에서 git "git"을(를) 사용하는 중
+2024-09-22 15:11:27.630 [info] [Model][doInitialScan] Initial repository scan started
+2024-09-22 15:11:27.630 [info] > git rev-parse --show-toplevel [2ms]
+2024-09-22 15:11:27.630 [info] > git rev-parse --git-dir --git-common-dir [2ms]
+2024-09-22 15:11:27.630 [info] [Model][openRepository] Opened repository: /home/assam_yoonseocho/2024-os-hw1
+2024-09-22 15:11:27.630 [info] > git config --get commit.template [4ms]
+2024-09-22 15:11:27.630 [info] > git rev-parse --show-toplevel [2ms]
+2024-09-22 15:11:27.630 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [4ms]
+2024-09-22 15:11:27.630 [info] > git rev-parse --show-toplevel [2ms]
+2024-09-22 15:11:27.630 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-09-22 15:11:27.630 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/assam_yoonseocho/2024-os-hw1/.git/refs/remotes/origin/master'
+2024-09-22 15:11:27.630 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-09-22 15:11:27.630 [info] > git status -z -uall [3ms]
+2024-09-22 15:11:27.630 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [15ms]
+2024-09-22 15:11:27.630 [info] > git config --get commit.template [12ms]
+2024-09-22 15:11:27.630 [info] > git config --local branch.32214362_yoonseocho.vscode-merge-base [10ms]
+2024-09-22 15:11:27.630 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [3ms]
+2024-09-22 15:11:27.630 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/master refs/remotes/origin/master [7ms]
+2024-09-22 15:11:27.630 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/assam_yoonseocho/2024-os-hw1/.git/refs/remotes/origin/master'
+2024-09-22 15:11:27.631 [info] > git rev-parse refs/remotes/origin/master [6ms]
+2024-09-22 15:11:27.634 [info] > git merge-base refs/heads/32214362_yoonseocho refs/remotes/origin/master [10ms]
+2024-09-22 15:11:27.674 [info] > git status -z -uall [41ms]
+2024-09-22 15:11:27.675 [info] > git rev-list --count --left-right refs/heads/32214362_yoonseocho...refs/remotes/origin/master [38ms]
+2024-09-22 15:11:27.689 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/32214362_yoonseocho refs/remotes/32214362_yoonseocho [4ms]
+2024-09-22 15:11:27.692 [info] > git diff --name-status -z --diff-filter=ADMR 3754e078984a4486af05a630408918cfc55ef03c...refs/remotes/origin/master [12ms]
+2024-09-22 15:11:27.693 [info] > git config --local branch.32214362_yoonseocho.vscode-merge-base [1ms]
+2024-09-22 15:11:27.700 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/master refs/remotes/origin/master [3ms]
+2024-09-22 15:11:28.113 [info] > git check-ignore -v -z --stdin [3ms]
+2024-09-22 15:11:29.768 [info] > git show --textconv :sish.c [5ms]
+2024-09-22 15:11:29.769 [info] > git ls-files --stage -- /home/assam_yoonseocho/2024-os-hw1/sish.c [2ms]
