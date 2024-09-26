@@ -4,21 +4,28 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <dirent.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #define MAX_INPUT_SIZE 1024
 #define MAX_ARG_SIZE 64
 #define MAX_PATH_LENGTH 1024
 
 pid_t child_pid = -1;
+char* completion_array[1000];
+int completion_count = 0;
 
 void print_banner();
-void print_prompt();
+void print_prompt(char* prompt, size_t size);
 void sigint_handler(int sig);
 char* find_command(const char* command);
 void handle_piped_commands(char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE], int num_commands);
 void handle_internal_command(char **args);
 void handle_external_command(char **args);
 void execute_command(char *command);
+char* completion_generator(const char* text, int state);
+char** tab_complete(const char* text, int start, int end);
 
 
 void print_banner(){
@@ -30,14 +37,20 @@ void print_banner(){
     printf("                                                                                \n\n");
 }
 
-void print_prompt(){
+void print_prompt(char* prompt, size_t size) {
     char* user = getenv("USER");
-    char cwd[1024];
+    char cwd[MAX_PATH_LENGTH];
+    char* home = getenv("HOME");
     
     if (getcwd(cwd, sizeof(cwd)) != NULL) {
-    printf("%s@SiSH:%s$ ", user, cwd);
+        // Replace home directory path with ~
+        if (home && strncmp(cwd, home, strlen(home)) == 0) {
+            snprintf(prompt, size, "%s@SiSH:~%s$ ", user, cwd + strlen(home));
+        } else {
+            snprintf(prompt, size, "%s@SiSH:%s$ ", user, cwd);
+        }
     } else {
-        printf("%s@SiSH$ ", user);
+        snprintf(prompt, size, "%s@SiSH$ ", user);
     }
 }
 
@@ -48,7 +61,9 @@ void sigint_handler(int sig) {
     } else {
         // 자식 프로세스가 없으면 새 프롬프트 출력
         printf("\n");
-        print_prompt();
+        char prompt[MAX_PATH_LENGTH];
+        print_prompt(prompt, sizeof(prompt));
+        printf("%s", prompt);
         fflush(stdout);
     }
 }
@@ -203,7 +218,7 @@ void handle_external_command(char **args) {
     full_path = find_command(args[0]);
     if (full_path == NULL) {
         if (access(args[0], X_OK) == 0) {
-            fprintf(stderr, "Command found: %s\n", args[0]);
+            // fprintf(stderr, "Command found: %s\n", args[0]);
             full_path = args[0];  // Use the command as-is if it's an executable in the current directory
         } else {
             fprintf(stderr, "Command not found: %s\n", args[0]);
@@ -274,31 +289,84 @@ void execute_command(char *command) {
     }
 }
 
+char* completion_generator(const char* text, int state) {
+    static int list_index, len;
+    char* name;
+
+    if (!state) {
+        list_index = 0;
+        len = strlen(text);
+    }
+
+    while (list_index < completion_count) {
+        name = completion_array[list_index++];
+        if (strncmp(name, text, len) == 0) {
+            return strdup(name);
+        }
+    }
+
+    return NULL;
+}
+
+char** tab_complete(const char* text, int start, int end) {
+    completion_count = 0;
+    DIR* dir;
+    struct dirent* entry;
+
+    // Load current directory contents
+    dir = opendir(".");
+    if (dir != NULL) {
+        while ((entry = readdir(dir)) != NULL && completion_count < 1000) {
+            if (entry->d_name[0] != '.') {  // Ignore hidden files
+                completion_array[completion_count++] = strdup(entry->d_name);
+            }
+        }
+        closedir(dir);
+    }
+
+    rl_attempted_completion_over = 1;
+    return rl_completion_matches(text, completion_generator);
+}
+
 int main(int argc, char *argv[]) {
-    char input[MAX_INPUT_SIZE];
+    char prompt[MAX_PATH_LENGTH];
+    char* input;
 
     // SIGINT 핸들러 설정
     signal(SIGINT, sigint_handler);
 
+    // Set up readline
+    rl_attempted_completion_function = tab_complete;
+
     print_banner();
 
     while (1) {
-        print_prompt();
+        // Generate prompt
+        print_prompt(prompt, sizeof(prompt));
 
-        if (fgets(input, sizeof(input), stdin) == NULL) {
-            break;
+        // Get input with completion
+        input = readline(prompt);
+
+        if (!input) break;  // EOF (ctrl-d) handling
+        
+        // Skip empty lines
+        if (*input) {
+            add_history(input);  // Add to history if not empty
+
+            if (strcmp(input, "quit") == 0) {
+                free(input);
+                break;
+            }
+
+            execute_command(input);
         }
 
-        // Remove newline character
-        input[strcspn(input, "\n")] = 0;
+        free(input);
+    }
 
-        // Check for quit command
-        if (strcmp(input, "quit") == 0) {
-            break;
-        }
-
-        // Execute the command
-        execute_command(input);
+    // Clean up
+    for (int i = 0; i < completion_count; i++) {
+        free(completion_array[i]);
     }
 
     printf("Exiting SiSH...\n");
