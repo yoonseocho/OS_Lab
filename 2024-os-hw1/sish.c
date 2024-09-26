@@ -71,7 +71,7 @@ char* find_command(const char* command) {
         dir = strtok(NULL, ":");
     }
 
-    // printf("Command '%s' not found in PATH\n", command);  // 명령어를 찾지 못한 경우 출력
+    // prinetf("Command '%s' not found in PATH\n", command);  // 명령어를 찾지 못한 경우 출력
     free(path_copy);
     return NULL;
 }
@@ -173,14 +173,24 @@ void handle_internal_command(char **args) {
         } else if (strcmp(args[0], "exit") == 0) {
             printf("Exiting SiSH...\n");
             exit(0);
-        } else if (args[0][0] == '$') {
-            char* env_value = getenv(args[0] + 1);
-            if (env_value) {
-                printf("%s\n", env_value);
+        } else if (strcmp(args[0], "echo") == 0) {
+        // echo 명령어 처리
+        for (int i = 1; args[i] != NULL; i++) {
+            if (args[i][0] == '$') {
+                // 환경 변수인지 확인하고 값을 출력
+                char *env_value = getenv(args[i] + 1);  // $를 제외한 부분을 가져옴
+                if (env_value) {
+                    printf("%s ", env_value);
+                } else {
+                    printf(" ");
+                }
             } else {
-                printf("Environment variable not found\n");
+                // 일반 문자열 출력
+                printf("%s ", args[i]);
             }
-        } else {
+        }
+        printf("\n");  // 명령어 끝에 줄바꿈 추가
+    } else {
             printf("Unknown internal command: %s\n", args[0]);
         }
     }
@@ -193,8 +203,8 @@ void handle_external_command(char **args) {
     full_path = find_command(args[0]);
     if (full_path == NULL) {
         if (access(args[0], X_OK) == 0) {
+            fprintf(stderr, "Command found: %s\n", args[0]);
             full_path = args[0];  // Use the command as-is if it's an executable in the current directory
-            // printf("Executing '%s' from current directory\n", args[0]);
         } else {
             fprintf(stderr, "Command not found: %s\n", args[0]);
             return;
@@ -204,8 +214,7 @@ void handle_external_command(char **args) {
     child_pid = fork();
     if (child_pid == -1) {
         perror("fork error");
-    }
-    else if (child_pid == 0) { // child
+    } else if (child_pid == 0) { // child
         signal(SIGINT, SIG_DFL);
         if (execve(full_path, args, environ) == -1) {
             perror("Error executing command");
@@ -220,28 +229,48 @@ void handle_external_command(char **args) {
 
 void execute_command(char *command) {
     char *args[MAX_ARG_SIZE];
+    char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE];
+    int num_commands = 0;
+    int arg_index = 0;
     char *token;
     int i = 0;
 
     // Tokenize the command
     token = strtok(command, " ");
     while (token != NULL && i < MAX_ARG_SIZE - 1) {
-        // 작은 따옴표가 있는 경우 제거
-        if (token[0] == '\'' && token[strlen(token) - 1] == '\'' ||
+        // Remove quotes if present
+        if ((token[0] == '\'' && token[strlen(token) - 1] == '\'') ||
             (token[0] == '\"' && token[strlen(token) - 1] == '\"')) {
-            token[strlen(token) - 1] = '\0';  // 끝의 따옴표 제거
-            token++;  // 시작 부분의 따옴표 건너뜀
+            token[strlen(token) - 1] = '\0';
+            token++;
         }
-        args[i++] = token;
+        
+        if (strcmp(token, "|") == 0) {
+            // End of a command in the pipe
+            args[arg_index] = NULL;
+            memcpy(commands[num_commands], args, (arg_index + 1) * sizeof(char*));
+            num_commands++;
+            arg_index = 0;
+        } else {
+            args[arg_index++] = token;
+        }
+        
         token = strtok(NULL, " ");
     }
-    args[i] = NULL;
 
-    // Check if it's an internal command
-    if (args[0] != NULL && (strcmp(args[0], "cd") == 0 || strcmp(args[0], "exit") == 0 || args[0][0] == '$' || strchr(command, '|'))) {
-        handle_internal_command(args);
-    } else {
-        handle_external_command(args);
+    // Add the last command
+    args[arg_index] = NULL;
+    memcpy(commands[num_commands], args, (arg_index + 1) * sizeof(char*));
+    num_commands++;
+
+    if (num_commands > 1) {
+        handle_piped_commands(commands, num_commands);
+    } else if (args[0] != NULL) {
+        if (strcmp(args[0], "cd") == 0 || strcmp(args[0], "exit") == 0 || strcmp(args[0], "echo") == 0) {
+            handle_internal_command(args);
+        } else {
+            handle_external_command(args);
+        }
     }
 }
 
