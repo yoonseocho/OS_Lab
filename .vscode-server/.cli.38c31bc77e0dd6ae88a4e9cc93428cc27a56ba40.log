@@ -1,6 +1,0 @@
-Listening on 127.0.0.1:34515
-[2024-09-25 19:05:08] info Disposed of connection to running server.
-looking for token 54a60e5e-a7e7-4cdd-9b2a-95d5341c05c8, got Some("54a60e5e-a7e7-4cdd-9b2a-95d5341c05c8")
-[2024-09-25 19:05:08] info Checking /home/assam_yoonseocho/.vscode-server/cli/servers/Stable-38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/log.txt and /home/assam_yoonseocho/.vscode-server/cli/servers/Stable-38c31bc77e0dd6ae88a4e9cc93428cc27a56ba40/pid.txt for a running server...
-[2024-09-25 19:05:08] info Found running server (pid=337944)
-[2024-09-25 22:41:53] info Disposed of connection to running server.
