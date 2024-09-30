@@ -1,4 +1,4 @@
-#os_hw1
+# os_hw1
 HW1: Simple MyShell
 
 Operating Systems & Adv. Mobile project HW1: simple Shell (SiSH)
