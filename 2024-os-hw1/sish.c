@@ -27,7 +27,6 @@ void execute_command(char *command);
 char* completion_generator(const char* text, int state);
 char** tab_complete(const char* text, int start, int end);
 
-
 void print_banner(){
     printf(" _       __     __                             __           _____ _ _____ __  __\n");
     printf("| |     / /__  / /________  ____ ___  ___     / /_____     / ___/(_) ___// / / /\n");
@@ -43,7 +42,6 @@ void print_prompt(char* prompt, size_t size) {
     char* home = getenv("HOME");
     
     if (getcwd(cwd, sizeof(cwd)) != NULL) {
-        // Replace home directory path with ~
         if (home && strncmp(cwd, home, strlen(home)) == 0) {
             snprintf(prompt, size, "%s@SiSH:~%s$ ", user, cwd + strlen(home));
         } else {
@@ -56,10 +54,11 @@ void print_prompt(char* prompt, size_t size) {
 
 void sigint_handler(int sig) {
     if (child_pid != -1) {
-        // 자식 프로세스가 실행 중이면 종료
+        // If a child process is running, terminate it
         kill(child_pid, SIGTERM);
+        printf("\n");
     } else {
-        // 자식 프로세스가 없으면 새 프롬프트 출력
+        // If no child process, print a new prompt
         printf("\n");
         char prompt[MAX_PATH_LENGTH];
         print_prompt(prompt, sizeof(prompt));
@@ -79,14 +78,14 @@ char* find_command(const char* command) {
     while (dir != NULL) {
         snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
         if (access(full_path, X_OK) == 0) {
-            // printf("Command '%s' found in: %s\n", command, dir);  // 명령어를 찾은 경우에만
+            // printf("Command '%s' found in: %s\n", command, dir);
             free(path_copy);
             return full_path;
         }
         dir = strtok(NULL, ":");
     }
 
-    // prinetf("Command '%s' not found in PATH\n", command);  // 명령어를 찾지 못한 경우 출력
+    // prinetf("Command '%s' not found in PATH\n", command);
     free(path_copy);
     return NULL;
 }
@@ -96,7 +95,7 @@ void handle_piped_commands(char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE], int num_c
     pid_t pids[MAX_ARG_SIZE];
     extern char **environ;
 
-    // 파이프 생성 (명령어 수 - 1 만큼)
+    // Create pipes (number of commands - 1)
     for (int i = 0; i < num_commands - 1; i++) {
         if (pipe(pipefd + i * 2) == -1) {
             perror("pipe error");
@@ -104,7 +103,7 @@ void handle_piped_commands(char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE], int num_c
         }
     }
 
-    // 각 명령어에 대해 프로세스 생성 및 파이프 연결
+    // Create processes for each command and connect pipes
     for (int i = 0; i < num_commands; i++) {
         pids[i] = fork();
         if (pids[i] == -1) {
@@ -112,30 +111,30 @@ void handle_piped_commands(char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE], int num_c
             exit(1);
         }
 
-        if (pids[i] == 0) {  // 자식 프로세스
-            // 첫 번째 명령어가 아니면 이전 파이프로부터 입력 받기
+        if (pids[i] == 0) {  // Child process
+            // If not the first command, receive input from previous pipe
             if (i != 0) {
                 dup2(pipefd[(i - 1) * 2], STDIN_FILENO);
             }
 
-            // 마지막 명령어가 아니면 다음 파이프로 출력하기
+            // If not the last command, output to next pipe
             if (i != num_commands - 1) {
                 dup2(pipefd[i * 2 + 1], STDOUT_FILENO);
             }
 
-            // 모든 파이프 닫기
+            // Close all pipes
             for (int j = 0; j < 2 * (num_commands - 1); j++) {
                 close(pipefd[j]);
             }
 
-            // 명령어의 절대 경로를 찾아서 execve로 실행
+            // Find the absolute path of the command and execute with execve
             char *cmd_path = find_command(commands[i][0]);
             if (cmd_path == NULL) {
                 fprintf(stderr, "Command not found: %s\n", commands[i][0]);
                 exit(1);
             }
 
-            // execve로 명령어 실행
+            // Execute command with execve
             if (execve(cmd_path, commands[i], environ) == -1) {
                 perror("Error executing command");
                 exit(1);
@@ -143,12 +142,12 @@ void handle_piped_commands(char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE], int num_c
         }
     }
 
-    // 부모 프로세스는 모든 파이프 닫기
+    //  Parent process closes all pipes
     for (int i = 0; i < 2 * (num_commands - 1); i++) {
         close(pipefd[i]);
     }
 
-    // 모든 자식 프로세스 종료 대기
+    // Wait for all child processes to terminate
     for (int i = 0; i < num_commands; i++) {
         waitpid(pids[i], NULL, 0);
     }
@@ -156,25 +155,24 @@ void handle_piped_commands(char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE], int num_c
 
 void handle_internal_command(char **args) {
     int num_commands = 0;
-    char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE];  // 명령어 리스트
+    char *commands[MAX_ARG_SIZE][MAX_ARG_SIZE];  // Command list
     int arg_index = 0;
 
-    // 파이프가 포함된 명령어인지 확인하고 명령어를 분리
+    // Check if the command includes pipes and separate commands
     for (int i = 0; args[i] != NULL; i++) {
         if (strcmp(args[i], "|") == 0) {
-            args[i] = NULL;  // 파이프 기호를 NULL로 바꿔 명령어 분리
-            commands[num_commands][arg_index] = NULL;  // 인자 끝에 NULL 추가
+            args[i] = NULL;  // Change pipe symbol to NULL to separate commands
+            commands[num_commands][arg_index] = NULL;  // Add NULL at the end of arguments
             num_commands++;
             arg_index = 0;
         } else {
             commands[num_commands][arg_index++] = args[i];
         }
     }
-    commands[num_commands][arg_index] = NULL;  // 마지막 명령어에 대해 인자 끝에 NULL 추가
+    commands[num_commands][arg_index] = NULL;  // Add NULL at the end of arguments for the last command
     num_commands++;
 
     if (num_commands > 1) {
-        // 파이프가 있는 경우 처리
         handle_piped_commands(commands, num_commands);
     } else{
         if (strcmp(args[0], "cd") == 0) {
@@ -189,22 +187,19 @@ void handle_internal_command(char **args) {
             printf("Exiting SiSH...\n");
             exit(0);
         } else if (strcmp(args[0], "echo") == 0) {
-        // echo 명령어 처리
         for (int i = 1; args[i] != NULL; i++) {
             if (args[i][0] == '$') {
-                // 환경 변수인지 확인하고 값을 출력
-                char *env_value = getenv(args[i] + 1);  // $를 제외한 부분을 가져옴
+                char *env_value = getenv(args[i] + 1);  // Get the part after $
                 if (env_value) {
                     printf("%s ", env_value);
                 } else {
                     printf(" ");
                 }
             } else {
-                // 일반 문자열 출력
                 printf("%s ", args[i]);
             }
         }
-        printf("\n");  // 명령어 끝에 줄바꿈 추가
+        printf("\n");
     } else {
             printf("Unknown internal command: %s\n", args[0]);
         }
@@ -217,8 +212,7 @@ void handle_external_command(char **args) {
 
     full_path = find_command(args[0]);
     if (full_path == NULL) {
-        if (access(args[0], X_OK) == 0) {
-            // fprintf(stderr, "Command found: %s\n", args[0]);
+        if (access(args[0], X_OK) == 0) { // ./a.out - file executable in current dir
             full_path = args[0];  // Use the command as-is if it's an executable in the current directory
         } else {
             fprintf(stderr, "Command not found: %s\n", args[0]);
@@ -285,6 +279,7 @@ void execute_command(char *command) {
             handle_internal_command(args);
         } else {
             handle_external_command(args);
+            
         }
     }
 }
@@ -332,27 +327,29 @@ int main(int argc, char *argv[]) {
     char prompt[MAX_PATH_LENGTH];
     char* input;
 
-    // SIGINT 핸들러 설정
+    // Set up SIGINT handler
     signal(SIGINT, sigint_handler);
 
     // Set up readline
     rl_attempted_completion_function = tab_complete;
 
+    // Initialize readline history
+    using_history();
+    read_history(NULL); 
+
     print_banner();
 
     while (1) {
-        // Generate prompt
         print_prompt(prompt, sizeof(prompt));
 
-        // Get input with completion
         input = readline(prompt);
 
         if (!input) break;  // EOF (ctrl-d) handling
         
-        // Skip empty lines
+        
         if (*input) {
-            add_history(input);  // Add to history if not empty
-
+            add_history(input);
+            
             if (strcmp(input, "quit") == 0) {
                 free(input);
                 break;
@@ -369,6 +366,9 @@ int main(int argc, char *argv[]) {
         free(completion_array[i]);
     }
 
+    // Clear readline history
+    clear_history();
     printf("Exiting SiSH...\n");
+
     return 0;
 }
